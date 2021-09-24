@@ -11,9 +11,11 @@ class Register(Validator):
 
     POST_REGISTER = "/register"
 
-    @log('register user')
+    @log("register user")
     def registration(self, data: RegisterUser, type_response=None) -> Response:
-        res = self.app.client.request(method='POST',
-                                      url=f'{self.app.url}{self.POST_REGISTER}',
-                                      json=data.to_dict())
+        res = self.app.client.request(
+            method="POST",
+            url=f"{self.app.url}{self.POST_REGISTER}",
+            json=data.to_dict(),
+        )
         return self.structure(res, type_response=type_response)

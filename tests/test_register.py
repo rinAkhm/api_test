@@ -12,6 +12,7 @@ class TestRegister:
     3. Check status code
     4. Check response message
     """
+
     def test_register_user_valid_data(self, app: Controller) -> None:
         data = RegisterUser.random()
         res = app.register.registration(data=data, type_response=RegisterUserResponse)
